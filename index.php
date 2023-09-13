@@ -1,16 +1,23 @@
-
 <?php
-include "./includes/header.php";
+    include "./includes/header.php";
 ?>
 
-<h1 class="cover-heading">Cover your page.</h1>
-<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, 
+<h1 class="cover-heading">
+    
+    Kuldeep Mohanta's Cover Page (INFT 2100) 
+
+</h1>
+
+<p class="lead">
+    Cover is a one-page template for building simple and beautiful home pages. Download, edit the text,
     and add your own fullscreen background photo to make it your own.
 </p>
-<p class="lead">=
-    <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+
+<p class="lead"> = <a href="#" class="btn btn-lg btn-secondary">
+        Learn more
+    </a>
 </p>
 
 <?php
-include "./includes/footer.php";
-?>    
+    include "./includes/footer.php";
+?>
