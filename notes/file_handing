@@ -1,0 +1,120 @@
+1.1 File Handling
+
+Define - the process of working on files that are stored
+locally
+
+- can store files in "flat" files (logs, xml)
+    - flat files are slower than database queries
+
+# Opening files streams
+    - file opened with fopen()
+    - file closed with fclose()
+
+**note webserver needs permission to read and write
+    chmod 770 - gives file owner full permission and group (www-data) r/w/e permissions
+
+    folder that the file is *within*
+    chmod 770 giving file owner and group full permissions
+
+# File Open Modes
+r - read ONLY
+
+r+ - reading and writing, starts at beginning of file
+
+w - open for writing ONLY, removes all previous content, 
+if file doesn't exist, create it
+
+a - open writing, but start at end of current content (create if ness)
+
+a+ - open for reading and writing, start at END and create file if ness
+
+# example open/close
+
+<?php 
+    //opening file to read
+    $reading_file = fopen ('untitled/file.txt', 'r');
+
+    //opening file to write
+    $writing_file = fopen ('untitled/file.txt', 'w');
+
+    //closing both files
+    fclose ($reading_file);
+    fclose ($writing_file);
+?>
+
+# Writing Data
+
+To write data to a file:
+    fwrite($file_to_write, $data_to_write)
+
+In this case, data_to_write is being written into the open file stream
+
+# Data Writing Example
+<?php
+    //Opening file stream (a - opening file at beginning of file, append mode)
+    $handle = fopen('contacts.txt', 'a');
+
+    //Writing data into handle
+    fwrite($handle,"\nJohn Doe:\tjdoe@gmail.com");
+
+    //closing file stream
+    fclose($handle);
+?>
+
+# Other file operations
+
+delete file
+    unlink("filename);
+
+rename (file or directory)
+    rename("old name", "new name");
+
+copy file
+    copy("source", "destination");
+
+# Reading data
+
+two main functions to read data: gets & read
+
+**stops at pre-determined boundary
+fgets($file_to_read, $limit_to_read)
+
+**endlessly reads file to end of file (EOF)
+fread($file_to_read, $limit_to_read)
+
+when using EOF operating mode, EOF has to be handled appropriately
+
+feof($file_to_read)
+    returns true if (EOF) the end of the file has been reached
+
+# Data Reading Example
+<?php
+
+    //opening file to be read in r ONLY mode, store into $handle
+
+    $handle = fopen('contacts.txt', 'r');
+    
+    //while the file has not been read entirely, echo data from the $handle until 1024 bytes 
+
+    while (!feof($handle)) 
+        {
+            echo fgets($handle, 1024);
+
+            //line break
+            echo '<br />';
+        }
+    
+    //closing filestream
+    fclose($handle);
+?>
+
+# File open shortcuts
+
+two shortcut functions that don't require a file to be opened
+
+$seperate_array_line = file ($file_to_read)
+    reads an entire file into an array with each line as a seperate entry in the array
+
+$single_str = file_get_contents ($file_to_read)
+    reads an entire file into a single string
+
