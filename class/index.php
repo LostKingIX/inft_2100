@@ -1,4 +1,5 @@
 <?php
+    require ("./includes/header.php");
     include "./includes/header.php";
 ?>
 
@@ -9,8 +10,7 @@
 </h1>
 
 <p class="lead">
-    Cover is a one-page template for building simple and beautiful home pages. Download, edit the text,
-    and add your own fullscreen background photo to make it your own.
+    This index page is the landing page for INFT 2100 where you can access a sign in page, main dashboard, as well as other links and data.
 </p>
 
 <p class="lead"> = <a href="#" class="btn btn-lg btn-secondary">
