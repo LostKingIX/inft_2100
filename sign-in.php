@@ -2,6 +2,14 @@
 $title = "INFT 2100 - Salesperson Dashboard";
 
     include "./includes/header.php";
+
+
+    // Check if user is already logged in
+    if (isset($_SESSION['user'])) 
+        {
+            header("Location: dashboard.php");
+            exit();
+        }
 ?>   
 
 <form class="form-signin">
@@ -15,6 +23,9 @@ $title = "INFT 2100 - Salesperson Dashboard";
 
 
 <?php
+
+// Creating an empty error message variable to store errors
+$error_msg = "";
 
 //$dbconn = pg_connect("dbname=test");
 
