@@ -1,5 +1,7 @@
 <?php
-    include "../includes/header.php";
+$title = "INFT 2100 - Salesperson Dashboard";
+
+    include "./includes/header.php";
 ?>   
 
 <form class="form-signin">
@@ -42,5 +44,5 @@ print_r($db_connect);
 
 
 <?php
-include "../includes/footer.php";
+include "./includes/footer.php";
 ?>    

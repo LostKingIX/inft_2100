@@ -1,6 +1,6 @@
 <?php
-    require ("./includes/header.php");
-    include "./includes/header.php";
+$title = "INFT 2100 - Home Page";
+include "./includes/header.php";
 ?>
 
 <h1 class="cover-heading">

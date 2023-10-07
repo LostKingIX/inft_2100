@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Kuldeep's Index Page (INFT 2100)</title>
+    <title> <?php echo $title; ?> </title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,19 @@
     <!-- Custom styles for this template -->
     <link href="./css/styles.css" rel="stylesheet">
 	
-  </head>
+    <?php
+
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+
+        # Inserting required php documents
+        require("./includes/constants.php");
+        require("./includes/db.php");
+        // require("./includes/functions.php");
+
+    ?>
+</head>
+
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
