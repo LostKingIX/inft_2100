@@ -29,6 +29,32 @@ $error_msg = "";
 
 //$dbconn = pg_connect("dbname=test");
 
+# Sign in Function - connect to database to verify user sign in details
+function user_authentication ($emailaddress, $password)
+        {
+            # Establish Database connection
+            $db_connection = db_connect();
+
+            # Gather information from Database that is necessary for user verification
+            $query = "SELECT id, email, Password FROM users WHERE email = $1";  // $1 is a placeholder
+            
+            # Ensuring that data was succesfully found and the queury is not empty
+            $result = pg_query_params($db_connection, $query, array($email));  // Replace $1 with $email
+        
+            # Checking if the query failed and if there are any rows with the provided email address
+            if ($result && pg_num_rows($result) > 0) 
+                {
+                    # Fetch the user's data as a single row that matches (ideally)
+                    $user = pg_fetch_assoc($result);
+                    
+                    # Check the provided password against the hash stored in the database
+                    if (password_verify($password, $user['password_hash'])) 
+                        {
+                            # Successful login; return user data
+                            return $user;
+                            redirect("Location: dashboard.php");  
+                        }
+                }
 
 // connect to a database named "mary" on "localhost" at port "5432"
 //$dbconn2 = pg_connect("host=localhost port=5432 dbname=test");

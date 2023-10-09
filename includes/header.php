@@ -17,10 +17,13 @@
 	
     <?php
 
+        # Error reporting 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 
+
         # Inserting required php documents
+        ob_start();
         require("./includes/constants.php");
         require("./includes/db.php");
         // require("./includes/functions.php");
